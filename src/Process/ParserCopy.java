@@ -3,7 +3,7 @@ package Process;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Parser {
+public class ParserCopy {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -92,11 +92,5 @@ public class Parser {
                 values.push((int) Math.pow(left, right));
                 break;
         }
-    }
-
-    private static boolean isSymbol(String expression, int pos){
-
-        if (Character.isDigit(expression.charAt(pos))) return true;
-        return Character.isLetter(expression.charAt(pos));
     }
 }
