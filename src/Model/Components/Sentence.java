@@ -57,14 +57,13 @@ public class Sentence {
         i++;
 
         if (element == Final) return;
-        if (visited.contains(element.Links.getFirst())) return;
 
         for (int j = 0; j < element.Links.size(); j++){
 
             Link link = element.Links.get(j);
-            link.Target.State = ("q" + (i+""));
+            if (visited.contains(link)) continue;
+
             visited.add(link);
-            i++;
         }
 
         for (int j = 0; j < element.Links.size(); j++){
@@ -77,11 +76,11 @@ public class Sentence {
 
     private void printElement(Element element){
         if (element == Final) return;
-        if (visited.contains(element.Links.getFirst())) return;
 
         for (int j = 0; j < element.Links.size(); j++){
 
             Link link = element.Links.get(j);
+            if (visited.contains(link)) continue;
             System.out.println(element.State + " -> " + link.Target.State + ": " + link.Symbol);
             visited.add(link);
         }

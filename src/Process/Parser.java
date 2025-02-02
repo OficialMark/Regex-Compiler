@@ -14,7 +14,6 @@ public class Parser {
 
         try {
             Sentence resultado = process_expression(regex);
-            System.out.println("Resultado: " + resultado);
             resultado.ToString();                   //imprime automatos
 
         } catch (Exception e) {
@@ -55,6 +54,7 @@ public class Parser {
                     apply_operator(operators, values);
                 }
                 operators.pop(); // Remove o '(' da pilha
+                operators.add("c");
             } else {
                 while (!operators.isEmpty() && precedence(operators.peek()) >= precedence(String.valueOf(ch))) {
                     apply_operator(operators, values);
@@ -90,6 +90,7 @@ public class Parser {
                 break;
 
             case "c":
+                if (values.size() < 2) return;
                 right = values.pop();
                 left = values.pop();
 
