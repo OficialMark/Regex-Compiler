@@ -6,8 +6,8 @@ public class    Element {
     String State;
     ArrayList<Link> Links;
 
-    public Element(String state) {
-        State = state;
+    public Element() {
+        State = null;
         Links = new ArrayList<>();
     }
 }

@@ -1,5 +1,7 @@
 package Process;
 
+import Model.Components.Sentence;
+
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -27,10 +29,10 @@ public class ParserCopy {
 
             if (ch == ' ') continue;
 
-            if (Character.isDigit(ch)) {
+            if (isSymbol(ch)) {
                 int value = 0;
-                while (i < expression.length() && Character.isDigit(expression.charAt(i))) {
-                    value = value * 10 + (expression.charAt(i) - '0');
+                while (i < expression.length() && isSymbol(expression, i)) {
+                    value = value * 10 + (expression.charAt(i) - '0'); //conversão para inteiro
                     i++;
                 }
                 values.push(value);
@@ -92,5 +94,17 @@ public class ParserCopy {
                 values.push((int) Math.pow(left, right));
                 break;
         }
+    }
+
+    private static boolean isSymbol(String expression, int pos){
+
+        if (Character.isDigit(expression.charAt(pos))) return true;
+        return Character.isLetter(expression.charAt(pos));
+    }
+
+    private static boolean isSymbol(char ch){
+
+        if (Character.isDigit(ch)) return true;
+        return Character.isLetter(ch);
     }
 }

@@ -2,9 +2,9 @@ package Model.Components;
 
 public class Link {
     Element Target;
-    Element Symbol;
+    char Symbol;
 
-    public Link(Element target, Element symbol) {
+    public Link(Element target, char symbol) {
         Target = target;
         Symbol = symbol;
     }
