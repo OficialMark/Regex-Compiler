@@ -31,19 +31,22 @@ public class Parser {
             if (ch == ' ') continue;
 
             if (isSymbol(ch)) {
-                values.push(new Sentence(regex, i));
 
                 if (isSymbol(regex, i+1)){     //caso o proximo caractere represente uma concatenação
-                    i++;                            //tomar cuidado, pode resultar em fora de range
 
-                    while (i < regex.length() && isSymbol(regex, i)) {
-                        operators.push("c");
+                    while (i < regex.length()-2 && isSymbol(regex, i) && isSymbol(regex, i+1)) {
+
                         values.push(new Sentence(regex, i));
+                        values.push(new Sentence(regex, i+1));
+                        operators.push("c");
 
-                        i++;
+                        i+= 2;
                     }
+                    i--; // Ajuste para o incremento no for loop
+                    continue;
                 }
-                //i--; // Ajuste para o incremento no for loop
+
+                values.push(new Sentence(regex, i));
                 continue;
             }
 
@@ -54,7 +57,10 @@ public class Parser {
                     apply_operator(operators, values);
                 }
                 operators.pop(); // Remove o '(' da pilha
-                operators.add("c");
+
+                if (regex.length()-2 > i || (regex.length()-1 > i && isSymbol(regex, i+1))) {   //verifica se há mais valores após o parenteses, pois se houver, é necessario concatenar
+                    operators.add("c");
+                }
             } else {
                 while (!operators.isEmpty() && precedence(operators.peek()) >= precedence(String.valueOf(ch))) {
                     apply_operator(operators, values);

@@ -53,8 +53,11 @@ public class Sentence {
     }
 
     private void sortNames(Element element){
-        element.State = ("q" + (i+""));
-        i++;
+
+        if (element.State == null) {
+            element.State = ("q" + (i+""));
+            i++;
+        }
 
         if (element == Final) return;
 
@@ -64,11 +67,8 @@ public class Sentence {
             if (visited.contains(link)) continue;
 
             visited.add(link);
-        }
 
-        for (int j = 0; j < element.Links.size(); j++){
-
-            Element target = element.Links.get(j).Target;
+            Element target = link.Target;
             sortNames(target);
         }
 
@@ -80,14 +80,13 @@ public class Sentence {
         for (int j = 0; j < element.Links.size(); j++){
 
             Link link = element.Links.get(j);
+
             if (visited.contains(link)) continue;
-            System.out.println(element.State + " -> " + link.Target.State + ": " + link.Symbol);
             visited.add(link);
-        }
 
-        for (int j = 0; j < element.Links.size(); j++){
+            System.out.println(element.State + " -> " + link.Target.State + ": " + link.Symbol);
 
-            Element target = element.Links.get(j).Target;
+            Element target = link.Target;
             printElement(target);
         }
 
@@ -95,7 +94,6 @@ public class Sentence {
 
     public void ToString(){
         sortNames(Initial);
-        Final.State = ("q" + (i+""));
 
         System.out.println("Initial state: " + Initial.State);
         System.out.println("Accepting states: " + Final.State);
