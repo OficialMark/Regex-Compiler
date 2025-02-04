@@ -38,11 +38,16 @@ public class Sentence {
     }
 
     public void star(){
+        //liga o antigo final ao antigo inicial, movimento vazio
+        this.Final.Links.add(new Link(this.Initial, 'e'));
+
+        //cria um estado final, liga estado final do elemento nesse novo estado, liga novo estado ao inicial do elemento, ambos movimentos vazios
         Element newFinal = new Element();
 
         this.Final.Links.add(new Link(newFinal, 'e'));
         newFinal.Links.add(new Link(this.Initial, 'e'));
 
+        //cria um estado inicial, liga ao estado inicial do elemento, e liga novo inicial ao novo estado final, ambos movimentos vazios
         Element newInit = new Element();
 
         newInit.Links.add(new Link(this.Initial, 'e'));
