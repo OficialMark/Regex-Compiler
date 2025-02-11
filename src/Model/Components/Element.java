@@ -2,7 +2,7 @@ package Model.Components;
 
 import java.util.ArrayList;
 
-public class    Element {
+public class Element {
     public String State;
     public ArrayList<Link> Links;
 

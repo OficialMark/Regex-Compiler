@@ -26,7 +26,7 @@ public class Parser {
         }
     }
 
-    private Sentence process_expression(String input) {
+    public Sentence process_expression(String input) {
         regex = input;
 
         for (i = 0; i < regex.length(); i++) {
@@ -179,7 +179,6 @@ public class Parser {
         }
         return false;
     }
-
 
 
     private Sentence getSentence(){
