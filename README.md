@@ -1,4 +1,4 @@
-# Lista 2 -- Teoria da Computação / Linguagens Formais e Autômatos -- 2024/2
+# Lista 2 -- Linguagens Formais e Autômatos -- 2024/2
 
 **Introdução à Teoria da Computação; Fundamentos Matemáticos;  Computação e Representação**
 
