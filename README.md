@@ -30,7 +30,38 @@ precedência e executa as transformações. No final, imprime o autômato gerado
 ### Tutorial
 Navegue até a pasta ``/problemas/probl4/src`` e execute:
 
-```
+```bash
  java Main.java
 ```
 Ou, através de um IDE, execute o arquivo ``Main.java``
+
+### Comportamento
+Após executar, o console exibirá ``Digite a expressão regular: ``, e, após o usuário inserir a cadeia, o programa imprimirá 
+o autômato seguindo o formato especificado, como no exemplo abaixo:
+
+```bash
+Digite a expressão regular: (a|\empty)(ab|bb)*
+Initial state: q0
+Accepting states: q15
+q0 -> q1: \empty
+q1 -> q2: a
+q2 -> q3: \empty
+q3 -> q4: \empty
+q4 -> q5: \empty
+q5 -> q6: \empty
+q6 -> q7: a
+q7 -> q8: \empty
+q8 -> q9: b
+q9 -> q10: \empty
+q10 -> q5: \empty
+q5 -> q11: \empty
+q11 -> q12: b
+q12 -> q13: \empty
+q13 -> q14: b
+q14 -> q10: \empty
+q10 -> q15: \empty
+q4 -> q15: \empty
+q0 -> q16: \empty
+q16 -> q17: \empty
+q17 -> q3: \empty
+```
