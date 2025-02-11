@@ -1,6 +1,6 @@
 # Lista 2 -- Teoria da Computação / Linguagens Formais e Autômatos -- 2024/2
 
-**Introdução à Teoria da Computação & Fundamentos Matemáticos**
+**Introdução à Teoria da Computação; Fundamentos Matemáticos;  Computação e Representação**
 
 **Autor:** Bruno da Fonseca Chevitarese & Marcos Vinícius Souza dos Santos
 
